@@ -12,9 +12,20 @@ import Home from "./Home.js"
 function App() {
   return (
     <BrowserRouter>
-     <Link to="home">Accueil</Link>
-     <Link to="about">&Agrave; propos</Link>
-     <Link to="contact">Contact</Link>
+
+    <nav className="uk-navbar-container" uk-navbar>
+
+    <div className="uk-navbar-center">
+
+        <ul className="uk-navbar-nav">
+            <li className="uk-active"><Link to="home">Accueil</Link></li>
+            <li className="uk-active"><Link to="about">&Agrave; propos</Link></li>
+            <li className="uk-active"> <Link to="contact">Contact</Link></li>
+        </ul>
+    </div>
+    </nav>
+
+    
       <Routes>
         <Route path="/" element={<Home/>}/>
        <Route path="home" element={<Home/>}/>
