@@ -3,14 +3,38 @@ html, body, *p{
   font-family: 'Montserrat',sans-serif;
 }
 
+.title{
+line-height: 1.2;
+font-size: 32px;
+font-weight: 400;
+margin: 0 0 30px;
+letter-spacing: 1px;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+border-bottom: 1px solid;
+padding: 10px   
+}
+.default_img { 
+  width: 29vw !important;
+  height: 40vh !important
+}
 .logo_name {
-  text-align: center;
   font-family: 'Lovers Quarrel';
+  text-align: center;
   font-size: 170px;
 }
 
 .nav_space{
   margin:0 5vw !important;
+}
+
+.uk-{
+  display: flex;
+  justify-content: center;
+}
+
+.section_slide{
+  margin: 10vh 0;
 }
 
 
@@ -26,8 +50,8 @@ html, body, *p{
  grid-template-columns:  40% 50%;
  align-items:center;
  justify-content: space-between;
-border-top:2px solid rgb(0 0 0 / 25%);
-border-bottom: 2px solid rgb(0 0 0 / 25%);
+/* border-top:2px solid rgb(0 0 0 / 25%);
+border-bottom: 2px solid rgb(0 0 0 / 25%); */
 }
 
 .pair {

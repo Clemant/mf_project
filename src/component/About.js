@@ -12,11 +12,12 @@ const About = ()=>{
                      index%2 === 0? 
                       <div className="pair">
                           <div className="">
+                            <p className="title">{element.title}</p>
                             <p> {element.text}</p>
                           </div>
                           <div className="">
                                <figure className="picture">
-                                    <img src={element.img} alt={index}/>
+                                    <img  className="image" src={element.img} alt={index}/>
                                </figure>
                           </div>  
                  
@@ -31,6 +32,7 @@ const About = ()=>{
                        
                     </div>
                     <div className="">
+                        <p className="title">{element.title}</p>
                         <p> {element.text}</p>
                     </div>
                   </div>

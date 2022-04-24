@@ -1,38 +1,34 @@
 import "../css/App.css"
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
 import About from "./About.js"
 import Contact from "./Contact.js"
 import Home from "./Home.js"
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
     <p className="logo_name">CutMadeFolded</p>
     <nav className="uk-navbar-container" uk-navbar="true">
 
     <div className="uk-navbar-center">
 
         <ul className="uk-navbar-nav">
-            <li className="uk-active"><Link className="nav_space" to="home">Accueil</Link></li>
-            <li className="uk-active"><Link className="nav_space" to="about">&Agrave; propos</Link></li>
-            <li className="uk-active"> <Link className="nav_space" to="contact">Contact</Link></li>
+            <li className="uk-active"><a className="nav_space" href="#home" uk-scroll>Accueil</a></li>
+            <li className="uk-active"><a className="nav_space" href="#about" uk-scroll>&Agrave; propos</a></li>
+            <li className="uk-active"> <a className="nav_space" href="#contact" uk-scroll>Contact</a></li>
         </ul>
     </div>
     </nav>
-
+    <div id="home">
+       <Home/>
+    </div>
+    <div id="about">
+      <About/>
+    </div>
     
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-       <Route path="home" element={<Home/>}/>
-       <Route path="about" element={<About/>} />
-       <Route path="contact" element={<Contact/>}/>
-    </Routes>
-  </BrowserRouter>
+    <div id="contact">
+      <Contact/>
+    </div>
+   </div>
   );
 }
 
