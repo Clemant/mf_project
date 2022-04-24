@@ -12,15 +12,15 @@ import Home from "./Home.js"
 function App() {
   return (
     <BrowserRouter>
-
-    <nav className="uk-navbar-container" uk-navbar>
+    <p className="logo_name">CutMadeFolded</p>
+    <nav className="uk-navbar-container" uk-navbar="true">
 
     <div className="uk-navbar-center">
 
         <ul className="uk-navbar-nav">
-            <li className="uk-active"><Link to="home">Accueil</Link></li>
-            <li className="uk-active"><Link to="about">&Agrave; propos</Link></li>
-            <li className="uk-active"> <Link to="contact">Contact</Link></li>
+            <li className="uk-active"><Link className="nav_space" to="home">Accueil</Link></li>
+            <li className="uk-active"><Link className="nav_space" to="about">&Agrave; propos</Link></li>
+            <li className="uk-active"> <Link className="nav_space" to="contact">Contact</Link></li>
         </ul>
     </div>
     </nav>

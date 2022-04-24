@@ -1,38 +1,51 @@
-.App {
+html, body, *p{
+  margin:0;
+  font-family: 'Montserrat',sans-serif;
+}
+
+.logo_name {
   text-align: center;
+  font-family: 'Lovers Quarrel';
+  font-size: 170px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav_space{
+  margin:0 5vw !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.impair,
+.pair {
+  display: grid;
+  padding: 10vh 3vw;
+  margin: 5vh 5vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.impair {
+ /* grid-template-columns: 30% 70%; */
+ grid-template-columns:  40% 50%;
+ align-items:center;
+ justify-content: space-between;
+border-top:2px solid rgb(0 0 0 / 25%);
+border-bottom: 2px solid rgb(0 0 0 / 25%);
 }
 
-.App-link {
-  color: #61dafb;
+.pair {
+  /*grid-template-columns: 70% 30%;*/
+  grid-template-columns:  50% 40%;
+  align-items:center;
+  justify-content: space-between;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.images {
+  box-shadow: 12px 11px 5px 0px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 12px 11px 5px 0px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 12px 11px 5px 0px rgba(0, 0, 0, 0.48);
+}
+
+.image {
+  box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
+  -webkit-box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
+  -moz-box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
 }
