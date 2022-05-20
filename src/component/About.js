@@ -4,6 +4,10 @@ const element = data;
 const About = ()=>{
 
     return(  
+        <div className="">
+    <div className="">
+        <p className="section"> &Agrave; propos</p>
+    </div>
     <div className="App">{
         element.map((element, index)=>{
             return(
@@ -41,6 +45,7 @@ const About = ()=>{
                 </div>)
         })
     }
+    </div>
     </div>)
 }
 

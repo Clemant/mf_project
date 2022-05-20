@@ -28,6 +28,14 @@ padding: 10px
   margin:0 5vw !important;
 }
 
+.section{
+  text-align: center;
+  font-size: 70px;
+  background: black;
+  color: white;
+  padding: 25px;
+}
+
 .uk-{
   display: flex;
   justify-content: center;
