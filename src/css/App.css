@@ -1,18 +1,67 @@
-html, body, *p{
-  margin:0;
-  font-family: 'Montserrat',sans-serif;
+html,
+body,
+*p {
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
+.uk-navbar-container {
+  background-color: white !important;
+}
+/*section home*/
+
+.section_home_title {
+  padding: 2vw 2vh;
+}
+
+.uk-icon > * {
+  color: #a9a9a9 !important;
+}
+.nav_space:hover {
+  color: orange !important;
+}
+
+.title {
+  line-height: 1.2;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 30px;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+.default_img {
+  width: 29vw !important;
+  height: 40vh !important;
+}
 .logo_name {
+  font-family: "Lovers Quarrel";
   text-align: center;
-  font-family: 'Lovers Quarrel';
   font-size: 170px;
 }
 
-.nav_space{
-  margin:0 5vw !important;
+.nav_space {
+  margin: 0 5vw !important;
 }
 
+.section {
+  text-align: center;
+  font-size: 70px;
+  background: black;
+  color: white;
+  padding: 25px;
+}
+
+.uk- {
+  display: flex;
+  justify-content: center;
+}
+
+.section_slide {
+  margin: 10vh 0;
+}
 
 .impair,
 .pair {
@@ -22,20 +71,19 @@ html, body, *p{
 }
 
 .impair {
- /* grid-template-columns: 30% 70%; */
- grid-template-columns:  40% 50%;
- align-items:center;
- justify-content: space-between;
-border-top:2px solid rgb(0 0 0 / 25%);
-border-bottom: 2px solid rgb(0 0 0 / 25%);
+  /* grid-template-columns: 30% 70%; */
+  grid-template-columns: 40% 50%;
+  align-items: center;
+  justify-content: space-between;
+  /* border-top:2px solid rgb(0 0 0 / 25%);
+border-bottom: 2px solid rgb(0 0 0 / 25%); */
 }
 
 .pair {
   /*grid-template-columns: 70% 30%;*/
-  grid-template-columns:  50% 40%;
-  align-items:center;
+  grid-template-columns: 50% 40%;
+  align-items: center;
   justify-content: space-between;
-
 }
 
 .images {
@@ -45,7 +93,41 @@ border-bottom: 2px solid rgb(0 0 0 / 25%);
 }
 
 .image {
-  box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
-  -webkit-box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
-  -moz-box-shadow:  5px 8px 4px rgb(0 0 0 / 25%);
+  box-shadow: 5px 8px 4px rgb(0 0 0 / 25%);
+  -webkit-box-shadow: 5px 8px 4px rgb(0 0 0 / 25%);
+  -moz-box-shadow: 5px 8px 4px rgb(0 0 0 / 25%);
+}
+
+/* Section Contact*/
+
+.section_contact {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 75vh;
+  padding: 2vw;
+  margin-top: 10vh;
+}
+
+.section_contact_form {
+  display: grid;
+  margin: 2vh 0;
+}
+.message_form {
+  resize: none;
+}
+
+.section_contact_information {
+  padding: 0 2vw;
+}
+
+.field_form {
+  margin: 1vh 0;
+}
+
+.mark {
+  margin-top: 4vh !important;
+  margin-bottom: -2vh !important;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
 }
