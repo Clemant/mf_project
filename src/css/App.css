@@ -31,6 +31,7 @@ body,
   -moz-osx-font-smoothing: grayscale;
   border-bottom: 1px solid;
   padding: 10px;
+  color: black;
 }
 .default_img {
   width: 29vw !important;
@@ -40,18 +41,24 @@ body,
   font-family: "Lovers Quarrel";
   text-align: center;
   font-size: 170px;
+  color: black;
+  margin: 0 0 -40px 0 !important;
+  letter-spacing: 2px;
+}
+.logo_name:hover {
+  cursor: pointer;
 }
 
 .nav_space {
-  margin: 0 5vw !important;
+  margin: 0 2vw !important;
 }
 
 .section {
   text-align: center;
-  font-size: 70px;
-  background: black;
+  font-size: 65px;
+  background: #1c1d21;
   color: white;
-  padding: 25px;
+  padding: 20px;
 }
 
 .uk- {
@@ -60,7 +67,7 @@ body,
 }
 
 .section_slide {
-  margin: 10vh 0;
+  margin: 2vh 0;
 }
 
 .impair,
@@ -130,4 +137,74 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
   font-size: 14px;
   font-style: italic;
   font-weight: bold;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  margin-top: 5vh;
+  background-color: #f8fafc;
+  padding: 5vh;
+}
+
+.footer > p {
+  color: black !important;
+  text-align: center;
+}
+
+.socialNetwork {
+  display: grid;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.cont {
+  margin-top: 100px;
+}
+
+/* Media query*/
+
+@media (max-width: 276px) {
+  .logo_name {
+    font-size: 20px;
+    color: red;
+  }
+  .default_img {
+    width: 28vw !important;
+    height: 23vh !important;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+  .logo_name {
+    font-size: 134px;
+    margin: 0 !important;
+  }
+
+  .footer {
+    margin-top: 20vh;
+  }
+  .default_img {
+    width: 29vw !important;
+    height: 40vh !important;
+  }
+
+  .section {
+    text-align: center;
+    font-size: 50px;
+    background: #1c1d21;
+    color: white;
+    padding: 10px;
+  }
+
+  .cont {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo_name {
+    /*  font-size: 50px;*/
+  }
 }
