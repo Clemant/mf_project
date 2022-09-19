@@ -1,6 +1,11 @@
-import { Loader, LoaderOptions } from "google-maps";
+import { Loader } from "google-maps";
 import { useForm } from "react-hook-form";
-const loader = new Loader("AIzaSyC8wg6hI13Ty8bSj5oGfzYFEdV2BNsunVs");
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const loader = new Loader(process.env.REACT_APP_API);
 
 const coordonnésGPs = { lat: 15.891359, lng: -61.312273 };
 loader.load().then(function (google) {
@@ -14,14 +19,53 @@ loader.load().then(function (google) {
   });
 });
 
-const onSubmit = (data) => {
-  console.log(data);
-  console.log(process.env.REACT_APP_TEST_VAR);
-};
 const Contact = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setError } = useForm();
+
+  const form = useRef();
+  const onSubmit = async (data) => {
+    //console.log(data);
+    // console.log(form, " ", form.current);
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_KEY_ID
+      )
+      .then(
+        (result) => {
+          // console.log(result.text);
+          toast.success("Votre email à été envoyé avec succès.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      );
+  };
   return (
     <div className="">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {/* Same as */}
+      <ToastContainer />
       <div className="">
         <p className="section"> Contact</p>
       </div>
@@ -29,10 +73,9 @@ const Contact = () => {
         <div className="section_map" id="map"></div>
         <div className="section_contact_information">
           <p className="title">Informations:</p>
-          <p className="sentence">Nom: CAPOU</p>
-          <p className="sentence">Pr&eacute;nom: Marie-F&eacute;lie</p>
           <span className="sentence">
-            E-mail: <a href="mailto:mfcapou@gmail.com">mfcapou@gmail.com </a>
+            E-mail:{" "}
+            <a href="mailto:mfelie.capou@gmail.com ">mfelie.capou@gmail.com </a>
           </span>
           <p className="mark">
             * Pour toutes demandes, informations compl&eacute;mentaires,
@@ -40,6 +83,7 @@ const Contact = () => {
           </p>
           <div>
             <form
+              ref={form}
               className="section_contact_form"
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -50,6 +94,10 @@ const Contact = () => {
                   type="text"
                   placeholder="Nom"
                   {...register("lastName", { required: true })}
+                  {...setError("lastName", {
+                    type: "custom",
+                    message: "custom message",
+                  })}
                 />
               </div>
               <div className="uk-inline field_form">
@@ -67,7 +115,7 @@ const Contact = () => {
                   className="uk-input uk-width"
                   type="text"
                   placeholder="Adresse mail"
-                  {...register("email", { required: true })}
+                  {...register("user_email", { required: true })}
                 />
               </div>
               <div className="uk-inline field_form">
@@ -86,6 +134,15 @@ const Contact = () => {
             </form>
           </div>
         </div>
+      </div>
+      <div className="footer">
+        <p>Suivez nous sur nos différents reseaux sociaux</p>
+        <div className="socialNetwork">
+          <span uk-icon="icon:instagram; ratio:1.5"></span>
+        </div>
+        <p>
+          Made by love by <a href="">FlamboyanTech</a>
+        </p>
       </div>
     </div>
   );

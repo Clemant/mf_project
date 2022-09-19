@@ -3,7 +3,7 @@ import data from "../data/data_about";
 const element = data;
 const About = () => {
   return (
-    <div className="">
+    <div className="cont">
       <div className="">
         <p className="section"> &Agrave; propos</p>
       </div>
