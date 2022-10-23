@@ -1,0 +1,95 @@
+@import url(//fonts.googleapis.com/css2?family=Lovers+Quarrel&family=Montserrat);
+
+$colorBlack: black;
+$letterSpacing: 2px;
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  font-display: swap;
+}
+
+.logo_name {
+  text-align: center;
+  font-size: 80px;
+  font-family: "Lovers Quarrel", sans-serif;
+  font-display: swap;
+  color: $colorBlack;
+}
+
+.uk-navbar-container {
+  background-color: $colorBlack !important;
+  .nav_space {
+    color: white !important;
+    letter-spacing: $letterSpacing !important;
+  }
+}
+
+.section_home_title {
+  padding: 2vw 2vh;
+}
+
+.home_title,
+.about_title {
+  line-height: 1.2;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0 0 30px;
+  letter-spacing: $letterSpacing;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-bottom: 1px solid;
+  padding: 10px;
+  color: $colorBlack;
+}
+
+.home_img {
+  width: 25vw !important;
+  height: 35vh !important;
+}
+
+.home_section_slide {
+  margin: 2vh 0;
+}
+
+.about_container {
+  margin-top: 100px;
+}
+
+.about_impair,
+.about_pair {
+  display: grid;
+  padding: 10vh 3vw;
+  margin: 4vh 5vw;
+}
+
+.about_impair {
+  /* grid-template-columns: 30% 70%; */
+  grid-template-columns: 40% 50%;
+  align-items: center;
+  justify-content: space-between;
+  /* border-top:2px solid rgb(0 0 0 / 25%);
+border-bottom: 2px solid rgb(0 0 0 / 25%); */
+}
+
+.about_pair {
+  /*grid-template-columns: 70% 30%;*/
+  grid-template-columns: 50% 40%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/** Common**/
+
+.section {
+  text-align: center;
+  font-size: 50px;
+  background-color: $colorBlack;
+  color: white;
+  padding: 20px;
+}
+
+/* Media querie*/
+/** impair : direction:rtl*/

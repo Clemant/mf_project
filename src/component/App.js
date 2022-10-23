@@ -1,4 +1,4 @@
-import "../css/App.css";
+import "../css/style.scss";
 import About from "./About.js";
 import Contact from "./Contact.js";
 import Home from "./Home.js";

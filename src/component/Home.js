@@ -1,3 +1,5 @@
+import data_home from "../data/data_home";
+
 const ccardsTheme = [
   {
     id: 0,
@@ -5,7 +7,7 @@ const ccardsTheme = [
     picture: [
       {
         id: 0,
-        url_picture: "https://picsum.photos/500/400?random",
+        url_picture: "https://picsum.photos/300/300?random",
         alt: "anniv1",
       },
       {
@@ -15,12 +17,12 @@ const ccardsTheme = [
       },
       {
         id: 2,
-        url_picture: "https://picsum.photos/400/300?grayscale",
+        url_picture: "https://picsum.photos/300/300?grayscale",
         alt: "anniv2",
       },
       {
         id: 3,
-        url_picture: "https://picsum.photos/700/200",
+        url_picture: "https://picsum.photos/300/300",
         alt: "anniv3",
       },
     ],
@@ -77,15 +79,18 @@ const ccardsTheme = [
     message: "",
   },
 ];
+
 const Home = () => {
   return (
-    <div className="App">
+    <div>
       {/** Attention */}
+
+      {console.log("data_home", data_home)}
       {ccardsTheme.map((element, index) => {
         return (
           <div key={index}>
             <div className="section_home_title">
-              <p className="title">{element.title}</p>
+              <p className="home_title">{element.title}</p>
             </div>
             <div
               className="section_slide"
@@ -99,19 +104,15 @@ const Home = () => {
                   {element.picture.map((e, i) => {
                     return (
                       <li key={i}>
-                        <div className="">
-                          <div className="uk-">
-                            <figure>
-                              <img
-                                className="default_img"
-                                src={e.url_picture}
-                                width="200"
-                                height="1200"
-                                alt={e.alt}
-                              />
-                            </figure>
-                          </div>
-                        </div>
+                        <img
+                          className="default_img"
+                          loading="lazy"
+                          src="https://picsum.photos/700/400?grayscale"
+                          width="500"
+                          height="300"
+                          uk-img="loading: eager"
+                          alt={e.alt}
+                        />
                       </li>
                     );
                   })}
