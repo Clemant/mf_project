@@ -4,8 +4,8 @@ const element = data;
 const About = () => {
   return (
     <div className="about_container">
-      <div>
-        <p className="section"> &Agrave; propos</p>
+      <div className="section">
+        <p className="section_title"> &Agrave; propos</p>
       </div>
       <div>
         {element.map((element, index) => {
@@ -23,7 +23,7 @@ const About = () => {
                   >
                     <figure className="picture">
                       <img
-                        className="image"
+                        className="about_image"
                         src={element.img}
                         alt={index}
                         loading="lazy"
@@ -42,7 +42,7 @@ const About = () => {
                     <figure className="picture">
                       <img
                         src={element.img}
-                        className="image"
+                        className="about_image"
                         alt={index}
                         loading="lazy"
                         width="640"

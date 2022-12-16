@@ -2,6 +2,7 @@
 
 $colorBlack: black;
 $letterSpacing: 2px;
+$center: center;
 body,
 html {
   font-family: "Montserrat", sans-serif;
@@ -11,12 +12,57 @@ html {
   font-display: swap;
 }
 
-.logo_name {
-  text-align: center;
-  font-size: 80px;
-  font-family: "Lovers Quarrel", sans-serif;
-  font-display: swap;
-  color: $colorBlack;
+.logo {
+  justify-content: $center;
+  display: flex;
+  align-items: $center;
+  padding: 20px !important;
+  height: 305px;
+  &_name {
+    text-align: $center;
+    font-size: 170px;
+    font-family: "Lovers Quarrel", sans-serif;
+    font-display: swap;
+    color: $colorBlack;
+    margin: 0px !important;
+    & :hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.uk-navbar-center {
+  justify-content: center;
+  height: 120px;
+  width: 100%;
+  align-items: center;
+}
+
+.uk-navbar-nav {
+  justify-content: space-evenly;
+  width: 45%;
+}
+
+/*
+height: 120px; banner;
+display: flex;
+just-content:center pr div uk-navbar-center;
+just-centent: space-eventy uk-navbar-nav
+width: 50%
+align-item:center 
+
+banner margin-bottom:80px
+*/
+
+.default_img {
+  width: 20vw !important;
+  height: 95% !important;
+  //aspect-ratio: 3/2;
+  object-fit: contain;
+}
+.previous,
+.next {
+  color: $colorBlack !important;
 }
 
 .uk-navbar-container {
@@ -24,25 +70,17 @@ html {
   .nav_space {
     color: white !important;
     letter-spacing: $letterSpacing !important;
+    font-weight: 700;
+    font-size: 35px;
+    padding: 5px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 .section_home_title {
   padding: 2vw 2vh;
-}
-
-.home_title,
-.about_title {
-  line-height: 1.2;
-  font-size: 30px;
-  font-weight: 400;
-  margin: 0 0 30px;
-  letter-spacing: $letterSpacing;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border-bottom: 1px solid;
-  padding: 10px;
-  color: $colorBlack;
 }
 
 .home_img {
@@ -81,15 +119,96 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
   justify-content: space-between;
 }
 
+.contact_section {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 75vh;
+  padding: 2vw;
+  margin-top: 10vh;
+}
+
+.contact_section_form {
+  display: grid;
+  margin: 2vh 0;
+}
+
+.contact_map,
+.about_images {
+  background-color: rgba($color: #f0eeee, $alpha: 0.5);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: $center;
+  &_sentence {
+    padding: 0px !important;
+    margin: 5px 0px !important;
+  }
+}
+
+.information {
+  display: flex;
+  width: 25%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 25px 0px 10px;
+}
+
+.legal_mention {
+  color: $colorBlack;
+}
+
 /** Common**/
 
 .section {
-  text-align: center;
-  font-size: 50px;
+  height: 90px;
+  display: flex;
+  justify-content: $center;
+  align-items: center;
   background-color: $colorBlack;
-  color: white;
-  padding: 20px;
+  padding: 20px !important;
+
+  &_title {
+    font-size: 60px;
+    color: white;
+    font-weight: 700;
+    margin: 0px !important;
+  }
+
+  &_slide {
+    margin: 2vh 0 !important;
+  }
+  &_slider {
+    margin: 0px !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  &_base {
+    align-items: baseline;
+  }
 }
 
+.socialNetwork {
+  display: flex;
+  width: 200px;
+  justify-content: space-evenly;
+}
+
+.home_title,
+.about_title,
+.contact_title {
+  line-height: 1.2;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0 0 30px;
+  letter-spacing: $letterSpacing;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-bottom: 1px solid;
+  padding: 10px;
+  color: $colorBlack;
+}
 /* Media querie*/
 /** impair : direction:rtl*/

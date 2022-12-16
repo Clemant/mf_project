@@ -100,32 +100,36 @@ const Home = () => {
                 className="uk-position-relative uk-visible-toggle uk-light"
                 tabIndex="-1"
               >
-                <ul className="uk-slider-items uk-child-width-1-3@s uk-grid">
+                <ul className="uk-slider-items uk-child-width-1-3@s uk-grid section_base">
                   {element.picture.map((e, i) => {
                     return (
                       <li key={i}>
-                        <img
-                          className="default_img"
-                          loading="lazy"
-                          src="https://picsum.photos/700/400?grayscale"
-                          width="500"
-                          height="300"
-                          uk-img="loading: eager"
-                          alt={e.alt}
-                        />
+                        <div className="section_slider">
+                          <figure>
+                            <img
+                              className="default_img"
+                              loading="lazy"
+                              src={e.url_picture}
+                              width="500"
+                              height="300"
+                              uk-img="loading: eager"
+                              alt={e.alt}
+                            />
+                          </figure>
+                        </div>
                       </li>
                     );
                   })}
                 </ul>
 
                 <a
-                  className="uk-position-center-left uk-position-small uk-hidden-hover"
+                  className="uk-position-center-left uk-position-small uk-hidden-hover previous"
                   href="#"
                   uk-slidenav-previous="true"
                   uk-slider-item="previous"
                 ></a>
                 <a
-                  className="uk-position-center-right uk-position-small uk-hidden-hover"
+                  className="uk-position-center-right uk-position-small uk-hidden-hover next"
                   href="#"
                   uk-slidenav-next="true"
                   uk-slider-item="next"
