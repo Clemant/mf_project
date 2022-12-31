@@ -62,17 +62,21 @@ const Contact = () => {
       </div>
       <div className="contact_section">
         {" "}
-        <div>
-          <iframe
-            width="685"
-            height="535"
-            frameBorder="0"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61386.58634408345!2d-61.26625254651065!3d15.9267873863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1666523392742!5m2!1sen!2sfr"
-            scrolling="no"
-            loading="lazy"
-            className="contact_map"
-            title="marie_galante"
-          ></iframe>
+        <div className="contact_google_map">
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe
+                width="685"
+                height="535"
+                frameBorder="0"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61386.58634408345!2d-61.26625254651065!3d15.9267873863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1666523392742!5m2!1sen!2sfr"
+                scrolling="no"
+                loading="lazy"
+                className="contact_map"
+                title="marie_galante"
+              ></iframe>
+            </div>
+          </div>
         </div>
         <div className="contact_section_information">
           <p className="contact_title">Informations:</p>
@@ -126,7 +130,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <input
-                className="uk-button uk-button-default  uk-width-1-4"
+                className="uk-button uk-button-default  submit_button uk-width-1-4"
                 value="Envoyer"
                 type="submit"
               />

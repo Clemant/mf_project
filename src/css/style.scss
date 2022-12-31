@@ -31,6 +31,23 @@ html {
   }
 }
 
+/** st*/
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 90%;
+  height: 545px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 90%;
+  height: 545px;
+}
+.gmap_iframe {
+  height: 545px !important;
+}
+
 .uk-navbar-center {
   justify-content: center;
   height: 120px;
@@ -212,3 +229,210 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
 }
 /* Media querie*/
 /** impair : direction:rtl*/
+
+// Small devices (landscape phones, 576px and up)
+
+@media (max-width: 576px) {
+  .section {
+    height: 18px;
+
+    &_title {
+      font-size: 30px;
+    }
+  }
+
+  .contact {
+    &_section {
+      display: flex;
+      flex-direction: column;
+      height: auto !important;
+      margin-bottom: 20px !important;
+      justify-content: center;
+      margin-top: 3vh;
+    }
+    &_map {
+      width: auto !important;
+      height: 50vh !important;
+    }
+    &_google_map {
+      display: none;
+    }
+  }
+
+  .submit_button {
+    width: 50%;
+  }
+  .about {
+    &_impair,
+    &_pair {
+      grid-template-columns: 100% !important;
+      margin: 0 !important;
+      padding: 3vh 3vw !important;
+    }
+  }
+
+  .uk-navbar-container {
+    //background-color: $colorBlack !important;
+    margin-bottom: 20px !important;
+  }
+  .uk-navbar-nav {
+    width: 100%;
+  }
+  .nav_space {
+    font-size: 14px !important;
+  }
+
+  .uk-navbar-center {
+    height: auto;
+  }
+
+  .default_img {
+    width: 95% !important;
+  }
+  .information {
+    width: 95%;
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .logo {
+    height: auto;
+    margin-bottom: 20px;
+    &_name {
+      font-size: 45px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .information {
+    width: 95%;
+    border: 3px dashed gray;
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .uk-navbar-nav {
+    width: 100%;
+  }
+  .nav_space {
+    font-size: 14px !important;
+  }
+  .contact {
+    &_section {
+      display: flex;
+      flex-direction: column;
+      height: auto !important;
+      margin-bottom: 20px !important;
+      justify-content: center;
+      margin-top: 3vh;
+    }
+  }
+  .contact_map {
+    width: 90%;
+    height: 80%;
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .information {
+    width: 95%;
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      width: 100% !important;
+      height: 675px !important;
+    }
+    .gmap_iframe {
+      height: 345px !important;
+      border: 1px solid green;
+    }
+    // border: 3px dashed red;
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .about {
+    &_impair,
+    &_pair {
+      grid-template-columns: 100% !important;
+      margin: 0 !important;
+      padding: 3vh 3vw !important;
+      justify-items: center;
+    }
+  }
+
+  .nav_space {
+    font-size: 30px !important;
+  }
+
+  .uk-navbar-nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .contact {
+    &_section {
+      display: flex;
+      flex-direction: column;
+      height: auto !important;
+      margin-bottom: 20px !important;
+      justify-content: center;
+      margin-top: 3vh;
+    }
+    &_map {
+      width: 90%;
+      height: 80%;
+    }
+  }
+
+  .submit_button {
+    width: 50%;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1200px) {
+  .information {
+    width: 95%;
+    border: 3px dashed blue;
+    a {
+      font-size: 14px;
+    }
+  }
+  .submit_button {
+    width: 50%;
+  }
+  .uk-navbar-nav {
+    width: 90%;
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .uk-navbar-nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .contact_section {
+  }
+
+  .footer {
+    margin-top: 7%;
+  }
+
+  .information {
+    width: 70%;
+    margin-top: 4%;
+    // border: 3px dashed orange;
+
+    a {
+      font-size: 14px;
+    }
+  }
+}
