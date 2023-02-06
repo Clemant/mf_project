@@ -1,31 +1,17 @@
-import { Loader } from "google-maps";
 import { useForm } from "react-hook-form";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const loader = new Loader(process.env.REACT_APP_API);
-
-const coordonnésGPs = { lat: 15.891359, lng: -61.312273 };
-loader.load().then(function (google) {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: coordonnésGPs,
-    zoom: 10.25,
-  });
-  const marker = new google.maps.Marker({
-    map: map,
-    position: coordonnésGPs,
-  });
-});
-
 const Contact = () => {
-  const { register, handleSubmit, setError } = useForm();
+  const { register, handleSubmit, setError, reset } = useForm();
 
   const form = useRef();
   const onSubmit = async (data) => {
-    //console.log(data);
-    // console.log(form, " ", form.current);
+    console.log(data);
+    console.log(form, " ", form.current);
+    console.log(process.env);
     emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
@@ -35,7 +21,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          // console.log(result.text);
+          console.log(result.text);
           toast.success("Votre email à été envoyé avec succès.", {
             position: "top-right",
             autoClose: 5000,
@@ -50,6 +36,11 @@ const Contact = () => {
           console.error(error.text);
         }
       );
+
+    reset((formValues) => ({
+      ...formValues,
+      lastName: "",
+    }));
   };
   return (
     <div className="">
@@ -66,17 +57,29 @@ const Contact = () => {
       />
       {/* Same as */}
       <ToastContainer />
-      <div className="">
-        <p className="section"> Contact</p>
+      <div className="section">
+        <p className="section_title"> Contact</p>
       </div>
-      <div className="section_contact">
-        <div className="section_map" id="map"></div>
-        <div className="section_contact_information">
-          <p className="title">Informations:</p>
-          <span className="sentence">
-            E-mail:{" "}
-            <a href="mailto:mfelie.capou@gmail.com ">mfelie.capou@gmail.com </a>
-          </span>
+      <div className="contact_section">
+        {" "}
+        <div className="contact_google_map">
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe
+                width="685"
+                height="535"
+                frameBorder="0"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61386.58634408345!2d-61.26625254651065!3d15.9267873863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1666523392742!5m2!1sen!2sfr"
+                scrolling="no"
+                loading="lazy"
+                className="contact_map"
+                title="marie_galante"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div className="contact_section_information">
+          <p className="contact_title">Informations:</p>
           <p className="mark">
             * Pour toutes demandes, informations compl&eacute;mentaires,
             veuillez remplir le formulaire ci-dessous. Merci
@@ -84,13 +87,13 @@ const Contact = () => {
           <div>
             <form
               ref={form}
-              className="section_contact_form"
+              className="contact_section_form"
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="uk-inline field_form">
                 <span className="uk-form-icon" uk-icon="icon: user"></span>
                 <input
-                  className="uk-input uk-width"
+                  className="uk-input uk-width uk-margin-small"
                   type="text"
                   placeholder="Nom"
                   {...register("lastName", { required: true })}
@@ -103,7 +106,7 @@ const Contact = () => {
               <div className="uk-inline field_form">
                 <span className="uk-form-icon" uk-icon="icon: user"></span>
                 <input
-                  className="uk-input uk-width"
+                  className="uk-input uk-width uk-margin-small"
                   type="text"
                   placeholder="Prenom"
                   {...register("firstName", { required: true })}
@@ -112,22 +115,22 @@ const Contact = () => {
               <div className="uk-inline field_form">
                 <span className="uk-form-icon" uk-icon="icon: mail"></span>
                 <input
-                  className="uk-input uk-width"
+                  className="uk-input uk-width uk-margin-small"
                   type="text"
                   placeholder="Adresse mail"
                   {...register("user_email", { required: true })}
                 />
               </div>
-              <div className="uk-inline field_form">
+              <div className="uk-inline field_form uk-margin-small">
                 <textarea
-                  className="uk-textarea uk-width message_form"
+                  className="uk-textarea uk-width uk-margin-small message_form"
                   rows="9"
                   placeholder="Message..."
                   {...register("message")}
                 ></textarea>
               </div>
               <input
-                className="uk-button uk-button-default  uk-width-1-4"
+                className="uk-button uk-button-default  submit_button uk-width-1-4"
                 value="Envoyer"
                 type="submit"
               />
@@ -136,14 +139,83 @@ const Contact = () => {
         </div>
       </div>
       <div className="footer">
-        <p>Suivez nous sur nos différents reseaux sociaux</p>
-        <div className="socialNetwork">
-          <span uk-icon="icon:instagram; ratio:1.5"></span>
+        <hr></hr>
+        <div>
+          <p className="footer_sentence">
+            Suivez nous sur nos différents reseaux sociaux
+          </p>
         </div>
-        <p>
-          Made by love by <a href="">FlamboyanTech</a>
-        </p>
+        <div className="socialNetwork">
+          <a
+            href="www.google"
+            uk-icon="icon:instagram; ratio:1.5"
+            uk-tooltip="title: Instagram;delay:300"
+          ></a>
+          <a
+            href="www.google"
+            uk-icon="icon:twitter; ratio:1.5"
+            uk-tooltip="title:Twitter;delay:300"
+          ></a>
+          <a
+            href="www.google"
+            uk-icon="icon:facebook; ratio:1.5"
+            uk-tooltip="title:Facebook; delay:300"
+          ></a>
+        </div>
+        <div className="information">
+          <a data-uk-toggle="target: #my-mention">Mention Légale</a>
+          <a data-uk-toggle="target: #my-condition">
+            Condition g&eacute;n&eacute;rale d'utilisation
+          </a>
+        </div>
+        <div>
+          <p className="footer_sentence uk-margin-large">
+            Made by <a href="">FlamboyanTech</a>
+          </p>
+        </div>
       </div>
+
+      {/** pop */}
+
+      <div id="my-mention" className="uk-modal-container" data-uk-modal={true}>
+        <div className="uk-modal-dialog uk-modal-body">
+          <button className="uk-modal-close-default" data-uk-close></button>
+          <p className="uk-modal-title legal_mention">Mention l&eacute;gale</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="my-condition"
+        className="uk-modal-container"
+        data-uk-modal={true}
+      >
+        <div className="uk-modal-dialog uk-modal-body">
+          <button className="uk-modal-close-default" data-uk-close></button>
+          <p className="uk-modal-title legal_mention">
+            Condition g&eacute;n&eacute;rale d'utilisation
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+
+      {/**tt */}
     </div>
   );
 };

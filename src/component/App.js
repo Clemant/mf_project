@@ -1,4 +1,4 @@
-import "../css/App.css";
+import "../css/style.scss";
 import About from "./About.js";
 import Contact from "./Contact.js";
 import Home from "./Home.js";
@@ -6,7 +6,9 @@ import Home from "./Home.js";
 function App() {
   return (
     <div>
-      <p className="logo_name">CutMadeFolded</p>
+      <div className="logo">
+        <p className="logo_name">CutMadeFolded</p>
+      </div>
       <nav className="uk-navbar-container" uk-navbar="true">
         <div className="uk-navbar-center">
           <ul className="uk-navbar-nav">
