@@ -1,92 +1,12 @@
-import data_home from "../data/data_home";
+import React from "react";
 
-const ccardsTheme = [
-  {
-    id: 0,
-    title: "Anniversaire",
-    picture: [
-      {
-        id: 0,
-        url_picture: "https://picsum.photos/300/300?random",
-        alt: "anniv1",
-      },
-      {
-        id: 1,
-        url_picture: "https://picsum.photos/300/300",
-        alt: "anniv2",
-      },
-      {
-        id: 2,
-        url_picture: "https://picsum.photos/300/300?grayscale",
-        alt: "anniv2",
-      },
-      {
-        id: 3,
-        url_picture: "https://picsum.photos/300/300",
-        alt: "anniv3",
-      },
-    ],
-    message: "",
-  },
-  {
-    id: 0,
-    title: "Fêtes Religieuses",
-    picture: [
-      {
-        id: 0,
-        url_picture: "https://picsum.photos/700/300?random",
-        alt: "FR1",
-      },
-      {
-        id: 1,
-        url_picture: "https://picsum.photos/700/500",
-        alt: "FR2",
-      },
-      {
-        id: 2,
-        url_picture: "https://picsum.photos/700/300?grayscale",
-        alt: "FR3",
-      },
-      {
-        id: 3,
-        url_picture: "https://picsum.photos/700/400",
-        alt: "FR4",
-      },
-    ],
-    message: "",
-  },
-  ,
-  {
-    id: 0,
-    title: "Fêtes des Meres",
-    picture: [
-      {
-        id: 0,
-        url_picture: "https://picsum.photos/700/200",
-        alt: "FM1",
-      },
-      {
-        id: 1,
-        url_picture: "https://picsum.photos/700/400?random",
-        alt: "FM2",
-      },
-      {
-        id: 2,
-        url_picture: "https://picsum.photos/700/400?grayscale",
-        alt: "FM3",
-      },
-    ],
-    message: "",
-  },
-];
-
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <div>
       {/** Attention */}
 
-      {console.log("data_home", data_home)}
-      {ccardsTheme.map((element, index) => {
+      {console.log("alldata:", data)}
+      {data.map((element, index) => {
         return (
           <div key={index}>
             <div className="section_home_title">
@@ -101,7 +21,7 @@ const Home = () => {
                 tabIndex="-1"
               >
                 <ul className="uk-slider-items uk-child-width-1-3@s uk-grid section_base">
-                  {element.picture.map((e, i) => {
+                  {element.list_images.map((e, i) => {
                     return (
                       <li key={i}>
                         <div className="section_slider">
@@ -109,11 +29,11 @@ const Home = () => {
                             <img
                               className="default_img"
                               loading="lazy"
-                              src={e.url_picture}
+                              src={e.img}
                               width="500"
                               height="300"
                               uk-img="loading: eager"
-                              alt={e.alt}
+                              alt={i}
                             />
                           </figure>
                         </div>
