@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Contact = () => {
+const Contact = ({ data }) => {
   const { register, handleSubmit, setError, reset } = useForm();
+  const [disabledSunetworkbmitButton, setDisabledSunetworkbmitButton] =
+    useState(false);
 
   const form = useRef();
   const onSubmit = async (data) => {
+    setDisabledSunetworkbmitButton(true);
     console.log(data);
     console.log(form, " ", form.current);
     console.log(process.env);
@@ -35,7 +38,10 @@ const Contact = () => {
         (error) => {
           console.error(error.text);
         }
-      );
+      )
+      .finally(() => {
+        setDisabledSunetworkbmitButton(false);
+      });
 
     reset((formValues) => ({
       ...formValues,
@@ -130,7 +136,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <input
-                className="uk-button uk-button-default  submit_button uk-width-1-4"
+                className="uk-button uk-button-default submit_button uk-width-1-4"
                 value="Envoyer"
                 type="submit"
               />
@@ -138,7 +144,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="footer">
+      <div className="footer uk-margin-top">
         <hr></hr>
         <div>
           <p className="footer_sentence">
@@ -146,21 +152,16 @@ const Contact = () => {
           </p>
         </div>
         <div className="socialNetwork">
-          <a
-            href="www.google"
-            uk-icon="icon:instagram; ratio:1.5"
-            uk-tooltip="title: Instagram;delay:300"
-          ></a>
-          <a
-            href="www.google"
-            uk-icon="icon:twitter; ratio:1.5"
-            uk-tooltip="title:Twitter;delay:300"
-          ></a>
-          <a
-            href="www.google"
-            uk-icon="icon:facebook; ratio:1.5"
-            uk-tooltip="title:Facebook; delay:300"
-          ></a>
+          {data.map((element, index) => {
+            return (
+              <a
+                key={index}
+                href={element.url}
+                uk-icon={`icon:${element.icon}; ratio:1.5`}
+                uk-tooltip={`title: ${element.title};delay:300`}
+              ></a>
+            );
+          })}
         </div>
         <div className="information">
           <a data-uk-toggle="target: #my-mention">Mention Légale</a>
