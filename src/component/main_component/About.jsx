@@ -17,17 +17,16 @@ const About = ({ data }) => {
                   <p> {element.text}</p>
                 </div>
                 <div
-                  className=""
+                  className="uk-flex uk-flex-center"
                   uk-scrollspy="target: > figure; cls: uk-animation-fade; delay: 700"
                 >
-                  <figure className="picture">
+                  <figure>
                     <img
                       className="about_image"
                       src={element.img}
+                      srcSet={`${element.img} 2x ${element.img} 4x ${element.img} 10x ${element.img} 50x`}
                       alt={index}
                       loading="lazy"
-                      width="640"
-                      height="360"
                     />
                   </figure>
                 </div>
