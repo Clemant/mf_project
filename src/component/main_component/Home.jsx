@@ -27,11 +27,8 @@ const Home = ({ data }) => {
                         <div className="section_slider">
                           <figure>
                             <img
-                              className="default_img"
-                              loading="lazy"
                               src={e.img}
-                              width="500"
-                              height="300"
+                              srcSet={`${e.img} 2x`}
                               uk-img="loading: eager"
                               alt={i}
                             />

@@ -13,42 +13,29 @@ const App = () => {
 
   useEffect(() => {
     console.log("useEffect", new Date(), data);
-
-    window.addEventListener("online", () => {
-      setNetwork(window.navigator.onLine);
-      console.log(window.navigator.onLine);
-    });
-
-    if (data.length === 0 && ping < 1) {
-      console.log("Console.log", process.env.REACT_APP_API_URL);
-      axios
-        .get(process.env.REACT_APP_API_URL, {
-          responseType: "json",
-          headers: {
-            "Content-Type": "application/json; charset=utf-8",
-          },
-        })
-        .then((response) => {
-          const getData = response.data.data[0];
-          setData(getData);
-        })
-        .catch((error) => {
-          console.error("useEffect: ", error);
-        })
-        .finally((final) => {
-          setLoading(false);
-        });
-    } else if (
-      (data.length > 0 && ping < 1) ||
-      (data.length === 0 && ping > 1)
-    ) {
-      setLoading(false);
-    }
-    setPing(ping + 1);
+    console.log("Console.log", process.env.REACT_APP_API_URL);
+    axios
+      .get(process.env.REACT_APP_API_URL, {
+        responseType: "json",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      })
+      .then((response) => {
+        const getData = response.data.data[0];
+        console.log(getData);
+        setData(getData);
+      })
+      .catch((error) => {
+        console.error("useEffect: ", error);
+      })
+      .finally((final) => {
+        setLoading(false);
+      });
   }, []);
   return (
     <div>
-      {loading === true && (ping > 1 || ping < 1) ? (
+      {loading === true ? (
         <div className="uk-flex uk-flex-center uk-flex-baseline uk-margin-large-top ">
           <p className="uk-heading-small">Chargement {console.log(network)}</p>
           <span uk-spinner="ratio: 2"></span>
