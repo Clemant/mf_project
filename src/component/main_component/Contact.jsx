@@ -1,20 +1,37 @@
 import { useForm } from "react-hook-form";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ data }) => {
-  const { register, handleSubmit, setError, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState,
+    formState: { isSubmitSuccessful },
+    reset,
+  } = useForm();
   const [disabledSunetworkbmitButton, setDisabledSunetworkbmitButton] =
     useState(false);
 
   const form = useRef();
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset((formValues) => ({
+        ...formValues,
+        lastName: "",
+        firstName: "",
+        user_email: "",
+        message: "",
+      }));
+    }
+  }, [reset]);
   const onSubmit = async (data) => {
     setDisabledSunetworkbmitButton(true);
     console.log(data);
-    console.log(form, " ", form.current);
-    console.log(process.env);
+    console.log(form);
     emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
@@ -37,16 +54,20 @@ const Contact = ({ data }) => {
         },
         (error) => {
           console.error(error.text);
+          toast.error("Votre email n'a pas été envoyé.", {
+            position: "top-right",
+            autoClose: 4500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       )
       .finally(() => {
         setDisabledSunetworkbmitButton(false);
       });
-
-    reset((formValues) => ({
-      ...formValues,
-      lastName: "",
-    }));
   };
   return (
     <div className="">
@@ -88,7 +109,7 @@ const Contact = ({ data }) => {
           <p className="contact_title">Informations:</p>
           <p className="mark">
             * Pour toutes demandes, informations compl&eacute;mentaires,
-            veuillez remplir le formulaire ci-dessous. Merci
+            veuillez remplir le formulaire ci-dessous. Merci.
           </p>
           <div>
             <form
@@ -132,7 +153,7 @@ const Contact = ({ data }) => {
                   className="uk-textarea uk-width uk-margin-small message_form"
                   rows="9"
                   placeholder="Message..."
-                  {...register("message")}
+                  {...register("message", { required: true })}
                 ></textarea>
               </div>
               <input
