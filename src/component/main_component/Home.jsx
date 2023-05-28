@@ -10,7 +10,7 @@ const Home = ({ data }) => {
         return (
           <div key={index}>
             <div className="section_home_title">
-              <p className="home_title">{element.title}</p>
+              <h4 className="home_title">{element.title}</h4>
             </div>
             <div
               className="section_slide"

@@ -50,7 +50,7 @@ const App = () => {
       ) : (
         <div>
           <div className="logo">
-            <p className="logo_name">CutMadeFolded {console.log(network)}</p>
+            <h1 className="logo_name">CutMadeFolded {console.log(network)}</h1>
           </div>
           <nav className="uk-navbar-container" uk-navbar="true">
             <div className="uk-navbar-center">

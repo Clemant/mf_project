@@ -13,7 +13,7 @@ const About = ({ data }) => {
             {index % 2 === 0 ? (
               <div className="about_pair">
                 <div className="">
-                  <p className="about_title">{element.title}</p>
+                  <h4 className="about_title">{element.title}</h4>
                   <p> {element.text}</p>
                 </div>
                 <div
@@ -49,7 +49,7 @@ const About = ({ data }) => {
                   </figure>
                 </div>
                 <div className="">
-                  <p className="about_title">{element.title}</p>
+                  <h4 className="about_title">{element.title}</h4>
                   <p> {element.text}</p>
                 </div>
               </div>
