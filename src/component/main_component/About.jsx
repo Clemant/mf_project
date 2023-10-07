@@ -1,20 +1,20 @@
 import React from "react";
+import Title from "../commun/Title";
 
 const About = ({ data }) => {
   return (
     <div className="about_container">
       {console.log("about", data)}
-      <div className="section">
-        <p className="section_title"> &Agrave; propos</p>
-      </div>
+
+      <Title title={"À propos"} message={"Apprenez à nous connaitres"}></Title>
       {data.map((element, index) => {
         return (
           <div key={index}>
             {index % 2 === 0 ? (
               <div className="about_pair">
                 <div className="">
-                  <h4 className="about_title">{element.title}</h4>
-                  <p> {element.text}</p>
+                  {/** <h4 className="about_title">{element.title}</h4> */}
+                  <p className="text-justify"> {element.text}</p>
                 </div>
                 <div
                   className="uk-flex uk-flex-center"
@@ -57,6 +57,7 @@ const About = ({ data }) => {
           </div>
         );
       })}
+      {/* <div className="m-x-5 w-full  bg-black shadow-xl h-0.5"></div> */}
     </div>
   );
 };
