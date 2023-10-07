@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../commun/Loading";
+import Title from "../commun/Title";
 
 const Contact = ({ data }) => {
   const {
@@ -70,7 +72,7 @@ const Contact = ({ data }) => {
       });
   };
   return (
-    <div className="">
+    <div className="p-2.5 md:p-10 mt-10">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -84,30 +86,47 @@ const Contact = ({ data }) => {
       />
       {/* Same as */}
       <ToastContainer />
-      <div className="section">
+      {/**
+       * 
+       * 
+       * <div className="section">
         <p className="section_title"> Contact</p>
       </div>
-      <div className="contact_section">
+       */}
+
+      <h2 className="font-extrabold text-black text-4xl py-1">Contact</h2>
+
+      <blockquote className="mb-10">
+        <p className="font-thin text-base mb-0 pb-0">
+          "Nous sommes là pour vous écouter et répondre à vos besoins"
+        </p>
+      </blockquote>
+
+      {/** */}
+      <div className="grid gap-4 xl:gap-6 mt-28 mb-10 grid-cols-1 grid-rows-2 xl:grid-cols-2 xl:grid-rows-1">
         {" "}
-        <div className="contact_google_map">
-          <div className="mapouter">
-            <div className="gmap_canvas">
-              <iframe
-                width="685"
-                height="535"
-                frameBorder="0"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61386.58634408345!2d-61.26625254651065!3d15.9267873863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1666523392742!5m2!1sen!2sfr"
-                scrolling="no"
-                loading="lazy"
-                className="contact_map"
-                title="marie_galante"
-              ></iframe>
+        <Suspense fallback={<Loading />}>
+          <div className="w-full">
+            <div className="mapouter">
+              <div className="gmap_canvas md:w-fit-content">
+                <iframe
+                  height="535"
+                  frameBorder="0"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61386.58634408345!2d-61.26625254651065!3d15.9267873863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1666523392742!5m2!1sen!2sfr"
+                  scrolling="no"
+                  loading="lazy"
+                  className="w-full sm:w-full 2xl:w-5/6"
+                  title="marie_galante"
+                ></iframe>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="contact_section_information">
-          <p className="contact_title">Informations:</p>
-          <p className="mark">
+        </Suspense>
+        <div className="xl:p-3">
+          <p className="text-base font-semibold text-black m-0">
+            Informations:
+          </p>
+          <p className="italic m-0">
             * Pour toutes demandes, informations compl&eacute;mentaires,
             veuillez remplir le formulaire ci-dessous. Merci.
           </p>
@@ -157,7 +176,7 @@ const Contact = ({ data }) => {
                 ></textarea>
               </div>
               <input
-                className="uk-button uk-button-default submit_button uk-width-1-4"
+                className="uk-button uk-button-default  w-1/2 md:w-1/4"
                 value="Envoyer"
                 type="submit"
               />
@@ -165,6 +184,9 @@ const Contact = ({ data }) => {
           </div>
         </div>
       </div>
+      {/** */}
+
+      {/*
       <div className="footer uk-margin-top">
         <hr></hr>
         <div>
@@ -197,7 +219,9 @@ const Contact = ({ data }) => {
         </div>
       </div>
 
-      {/** pop */}
+          */}
+
+      {/** popup */}
 
       <div id="my-mention" className="uk-modal-container" data-uk-modal={true}>
         <div className="uk-modal-dialog uk-modal-body">

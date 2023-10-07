@@ -1,4 +1,7 @@
 @import url(//fonts.googleapis.com/css2?family=Lovers+Quarrel&family=Montserrat);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 $colorBlack: black;
 $letterSpacing: 2px;
@@ -10,6 +13,17 @@ html {
   line-height: 24px;
   margin: 0;
   font-display: swap;
+  //background-color: #eeeded;
+  background-color: #fffefc;
+  height: 100%;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 2.5s steps(40, end), blink-caret 0.85s step-end infinite;
 }
 
 .text {
@@ -27,7 +41,7 @@ html {
     text-align: $center;
     font-size: 170px;
     font-family: "Lovers Quarrel", sans-serif;
-    font-display: swap;
+    // font-display: swap;
     color: $colorBlack;
     margin: 0px !important;
     & :hover {
@@ -36,17 +50,22 @@ html {
   }
 }
 
+.test {
+  display: flex;
+  overflow-x: scroll;
+  width: auto;
+}
 /** st*/
 .mapouter {
   position: relative;
   text-align: right;
-  width: 90%;
+  /*width: 90%;*/
   height: 545px;
 }
 .gmap_canvas {
   overflow: hidden;
   background: none !important;
-  width: 90%;
+  /*width: 90%;*/
   height: 545px;
 }
 .gmap_iframe {
@@ -99,6 +118,11 @@ banner margin-bottom:80px
       text-decoration: underline;
     }
   }
+}
+
+.section_home_sentence {
+  padding: 2vw 2vh;
+  font-size: 17px;
 }
 
 .section_home_title {
@@ -218,6 +242,19 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
   justify-content: space-evenly;
 }
 
+.home_title {
+  line-height: 1.2;
+  font-size: 17px;
+  font-weight: 400;
+
+  letter-spacing: $letterSpacing;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-bottom: 1px solid;
+
+  color: $colorBlack;
+}
+/*
 .home_title,
 .about_title,
 .contact_title {
@@ -232,6 +269,8 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
   padding: 10px;
   color: $colorBlack;
 }
+
+*/
 /* Media querie*/
 /** impair : direction:rtl*/
 
@@ -528,5 +567,29 @@ border-bottom: 2px solid rgb(0 0 0 / 25%); */
     a {
       font-size: 14px;
     }
+  }
+}
+
+//ANIMATION
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  50% {
+    width: 27%;
+  }
+  to {
+    width: auto;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
   }
 }
