@@ -4,12 +4,12 @@ const Navigation = () => {
       <div className="logo">
         <h1 className="logo_name">CutMadeFolded </h1>
       </div>
-      <nav className="bg-black shadow-xl -mt-10" uk-navbar="true">
+      <nav className="bg-black shadow-xl" uk-navbar="true">
         <div className="uk-navbar-center">
-          <ul className="uk-navbar-nav">
+          <ul className="flex justify-around w-full items-center m-0">
             <li className="">
               <a
-                className="text-black text-5xl md:text-7xl"
+                className="text-white text-3xl hover:text-white md:text-5xl"
                 href="#home"
                 uk-scroll="true"
               >
@@ -18,7 +18,7 @@ const Navigation = () => {
             </li>
             <li className="">
               <a
-                className="text-5xl md:text-7xl"
+                className=" text-white text-3xl hover:text-white md:text-5xl"
                 href="#about"
                 uk-scroll="true"
               >
@@ -27,7 +27,7 @@ const Navigation = () => {
             </li>
             <li className="">
               <a
-                className="text-5xl md:text-7xl"
+                className=" text-white text-3xl hover:text-white md:text-5xl"
                 href="#contact"
                 uk-scroll="true"
               >
